@@ -1,1 +1,4 @@
 * text=auto !eol
+interfaces/linkInterface.php -text
+interfaces/nodeInterface.php -text
+/miniflow.php -text
