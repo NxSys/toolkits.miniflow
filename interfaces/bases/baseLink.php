@@ -2,7 +2,11 @@
 
 namespace MiniFlow\Bases;
 
+require_once __dir__.'/../linkInterface.php';
+require_once __dir__.'/../nodeInterface.php';
+
 use MiniFlow\Interfaces\LinkInterface as LinkInterface;
+use MiniFlow\Interfaces\NodeInterface as NodeInterface;
 
 abstract class BaseLink implements LinkInterface
 {
@@ -16,8 +20,10 @@ abstract class BaseLink implements LinkInterface
 	 */
 	public function __construct(NodeInterface $parentNode, array $childrenNodes = array())
 	{
-		$self->parentNode = $parentNode;
-		$self->childrenNodes = $childrenNodes;
+		$this->parentNode = $parentNode;
+		$parentNode->setChild($this);
+		$this->childrenNodes = $childrenNodes;
+		return $this;
 	}
 	
 	/**
@@ -29,8 +35,8 @@ abstract class BaseLink implements LinkInterface
 	 */
 	public function setParent(NodeInterface $parentNode)
 	{
-		$oldParent = $self->parentNode;
-		$self->parentNode = $parentNode;
+		$oldParent = $this->parentNode;
+		$this->parentNode = $parentNode;
 		return $oldParent;
 	}
 	
@@ -41,7 +47,7 @@ abstract class BaseLink implements LinkInterface
 	 */
 	public function getParent()
 	{
-		return $self->parentNode;
+		return $this->parentNode;
 	}
 	
 	/**
@@ -52,8 +58,15 @@ abstract class BaseLink implements LinkInterface
 	 */
 	public function addChild(NodeInterface $newChildNode)
 	{
-		$self->childrenNodes->append($newChildNode);
-		return $self->childrenNodes;
+		if (count($this->childrenNodes)>0)
+		{
+			$this->childrenNodes[] = $newChildNode;
+		}
+		else
+		{
+			$this->childrenNodes = array($newChildNode);
+		}
+		return $this->childrenNodes;
 	}
 	
 	/**
@@ -65,11 +78,11 @@ abstract class BaseLink implements LinkInterface
 	 */
 	public function removeChild(NodeInterface $childNode)
 	{
-		foreach($self->childrenNodes as $index => $child)
+		foreach($this->childrenNodes as $index => $child)
 		{
 			if ($childNode === $child)
 			{
-				unset($self->childrenNodes[$index]);
+				unset($this->childrenNodes[$index]);
 				return true;
 			}
 		}
@@ -83,6 +96,6 @@ abstract class BaseLink implements LinkInterface
 	 */
 	public function getChildren()
 	{
-		return $self->childrenNodes;
+		return $this->childrenNodes;
 	}
 }

@@ -2,6 +2,8 @@
 
 namespace MiniFlow\Interfaces;
 
+require_once __dir__.'/nodeInterface.php';
+
 use MiniFlow\Interfaces\NodeInterface as NodeInterface;
 
 interface LinkInterface

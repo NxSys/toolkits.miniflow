@@ -1,6 +1,9 @@
 * text=auto !eol
-base/baseLink.php -text
-base/baseNode.php -text
+interfaces/bases/baseLink.php -text
+interfaces/bases/baseNode.php -text
 interfaces/linkInterface.php -text
 interfaces/nodeInterface.php -text
 /miniflow.php -text
+test/HelloNode.php -text
+test/RandomLink.php -text
+test/TestFlow.php -text

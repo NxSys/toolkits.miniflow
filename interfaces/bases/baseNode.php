@@ -2,7 +2,11 @@
 
 namespace MiniFlow\Bases;
 
+require_once __dir__.'/../linkInterface.php';
+require_once __dir__.'/../nodeInterface.php';
+
 use MiniFlow\Interfaces\NodeInterface as NodeInterface;
+use MiniFlow\Interfaces\LinkInterface as LinkInterface;
 
 abstract class BaseNode implements NodeInterface
 {
@@ -15,10 +19,15 @@ abstract class BaseNode implements NodeInterface
 	 * @var LinkInterface childLink An optional argument specifying the Child Link to which this Node leads. If present, it must be stored, if not, though, it can be safely ignored.
 	 * @return NodeInterface The constructor should return the Node object upon exit.
 	 */
-	public function __construct(LinkInterface $parentLink, LinkInterface $childLink = NULL)
+	public function __construct(LinkInterface $parentLink = NULL, LinkInterface $childLink = NULL)
 	{
-		$self->parentLink = $parentLink;
-		$self->childLink = $childLink;
+		$this->parentLink = $parentLink;
+		if ($parentLink != NULL)
+		{
+			$parentLink->addChild($this);
+		}
+		$this->childLink = $childLink;
+		return $this;
 	}
 	
 	/**
@@ -30,8 +39,8 @@ abstract class BaseNode implements NodeInterface
 	 */
 	public function setParent(LinkInterface $parentLink)
 	{
-		$oldParent = $self->parentLink;
-		$self->parentLink = $parentLink;
+		$oldParent = $this->parentLink;
+		$this->parentLink = $parentLink;
 		return $oldParent;
 	}
 	
@@ -42,7 +51,7 @@ abstract class BaseNode implements NodeInterface
 	 */
 	public function getParent()
 	{
-		return $self->parentLink;
+		return $this->parentLink;
 	}
 	
 	/**
@@ -53,8 +62,8 @@ abstract class BaseNode implements NodeInterface
 	 */
 	public function setChild(LinkInterface $childLink)
 	{
-		$oldChild = $self->childLink;
-		$self->childLink = $childLink;
+		$oldChild = $this->childLink;
+		$this->childLink = $childLink;
 		return $oldChild;
 	}
 	
@@ -65,7 +74,7 @@ abstract class BaseNode implements NodeInterface
 	 */
 	public function getChild()
 	{
-		return $self->childLink;
+		return $this->childLink;
 	}
 }
 

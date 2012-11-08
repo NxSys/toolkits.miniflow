@@ -2,6 +2,8 @@
 
 namespace MiniFlow\Interfaces;
 
+require_once __dir__.'/nodeInterface.php';
+
 use MiniFlow\Interfaces\LinkInterface as LinkInterface;
 
 interface NodeInterface
@@ -15,7 +17,7 @@ interface NodeInterface
 	 * @var LinkInterface childLink An optional argument specifying the Child Link to which this Node leads. If present, it must be stored, if not, though, it can be safely ignored.
 	 * @return NodeInterface The constructor should return the Node object upon exit.
 	 */
-	public function __construct(LinkInterface $parentLink, LinkInterface $childLink = NULL);
+	public function __construct(LinkInterface $parentLink = NULL, LinkInterface $childLink = NULL);
 	
 	/**
 	 * If it is necessary to reassign this Node to another parent Link, this function provides
