@@ -10,12 +10,12 @@ use MiniFlow\Interfaces\LinkInterface as LinkInterface;
 
 class MiniFlow
 {
-	public function __construct($sFlowName, NodeInterface $nStartNode)
+	public function __construct($sFlowName, NodeInterface $nStartNode, $aFlowEnv = array())
 	{
 		$this->sFlowName = $sFlowName;
 		$this->nStartNode = $nStartNode;
 		$this->nCurrentNode = $nStartNode;
-		$this->aFlowEnv = array();
+		$this->aFlowEnv = $aFlowEnv;
 	}
 	
 	public function execute()
