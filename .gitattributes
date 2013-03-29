@@ -7,3 +7,14 @@ F2Dev/MiniFlow/MiniFlow.php -text
 F2Dev/MiniFlow/Test/HelloNode.php -text
 F2Dev/MiniFlow/Test/RandomLink.php -text
 F2Dev/MiniFlow/Test/TestFlow.php -text
+F2Dev/MiniFlow/Vendors/ClassLoader/ApcClassLoader.php -text
+F2Dev/MiniFlow/Vendors/ClassLoader/ApcUniversalClassLoader.php -text
+F2Dev/MiniFlow/Vendors/ClassLoader/ClassCollectionLoader.php -text
+F2Dev/MiniFlow/Vendors/ClassLoader/ClassLoader.php -text
+F2Dev/MiniFlow/Vendors/ClassLoader/DebugClassLoader.php -text
+F2Dev/MiniFlow/Vendors/ClassLoader/DebugUniversalClassLoader.php -text
+F2Dev/MiniFlow/Vendors/ClassLoader/LICENSE -text
+F2Dev/MiniFlow/Vendors/ClassLoader/MapClassLoader.php -text
+F2Dev/MiniFlow/Vendors/ClassLoader/README.md -text
+F2Dev/MiniFlow/Vendors/ClassLoader/UniversalClassLoader.php -text
+F2Dev/MiniFlow/Vendors/ClassLoader/XcacheClassLoader.php -text
