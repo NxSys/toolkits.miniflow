@@ -2,8 +2,6 @@
 
 namespace F2Dev\MiniFlow\Interfaces;
 
-require_once __dir__.'/nodeInterface.php';
-
 use F2Dev\MiniFlow\Interfaces\LinkInterface as LinkInterface;
 
 interface NodeInterface

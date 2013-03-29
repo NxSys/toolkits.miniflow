@@ -2,13 +2,16 @@
 
 namespace F2Dev\MiniFlow\Test;
 
-require_once '../miniflow.php';
-require_once '../interfaces/bases/baselink.php';
-require_once '../interfaces/bases/basenode.php';
-require_once 'HelloNode.php';
-require_once 'RandomLink.php';
+require_once __dir__.'/../MiniFlow.php';
+
+require_once __dir__."/../Vendors/ClassLoader/UniversalClassLoader.php";
 
 use F2Dev\MiniFlow as MiniFlow;
+use Symfony\Component\ClassLoader\UniversalClassLoader;
+
+$loader = new UniversalClassLoader();
+$loader->registerNamespace('F2Dev\MiniFlow', __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..');
+$loader->register(true);
 
 $startNode = new MiniFlow\Test\HelloNode();
 $link1 = new MiniFlow\Test\RandomLink($startNode);

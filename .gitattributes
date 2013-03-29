@@ -1,6 +1,6 @@
 * text=auto !eol
-F2Dev/MiniFlow/Interfaces/Bases/BaseLink.php -text
-F2Dev/MiniFlow/Interfaces/Bases/BaseNode.php -text
+F2Dev/MiniFlow/Bases/BaseLink.php -text
+F2Dev/MiniFlow/Bases/BaseNode.php -text
 F2Dev/MiniFlow/Interfaces/LinkInterface.php -text
 F2Dev/MiniFlow/Interfaces/NodeInterface.php -text
 F2Dev/MiniFlow/MiniFlow.php -text
