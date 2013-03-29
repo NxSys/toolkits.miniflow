@@ -1,4 +1,5 @@
 * text=auto !eol
+F2Dev/MiniFlow.apigen.neon -text
 F2Dev/MiniFlow/Bases/BaseLink.php -text
 F2Dev/MiniFlow/Bases/BaseNode.php -text
 F2Dev/MiniFlow/Interfaces/LinkInterface.php -text
