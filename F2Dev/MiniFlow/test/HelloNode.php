@@ -1,11 +1,11 @@
 <?php
 
-namespace MiniFlow\Test;
+namespace F2Dev\MiniFlow\Test;
 
 require_once __dir__.'/../interfaces/bases/baselink.php';
 require_once __dir__.'/../interfaces/bases/basenode.php';
 
-use MiniFlow;
+use F2Dev\MiniFlow as MiniFlow;
 
 class HelloNode extends MiniFlow\Bases\BaseNode
 {

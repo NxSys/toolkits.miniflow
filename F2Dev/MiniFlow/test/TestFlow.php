@@ -1,6 +1,6 @@
 <?php
 
-namespace MiniFlow\Test;
+namespace F2Dev\MiniFlow\Test;
 
 require_once '../miniflow.php';
 require_once '../interfaces/bases/baselink.php';
@@ -8,7 +8,7 @@ require_once '../interfaces/bases/basenode.php';
 require_once 'HelloNode.php';
 require_once 'RandomLink.php';
 
-use MiniFlow;
+use F2Dev\MiniFlow as MiniFlow;
 
 $startNode = new MiniFlow\Test\HelloNode();
 $link1 = new MiniFlow\Test\RandomLink($startNode);

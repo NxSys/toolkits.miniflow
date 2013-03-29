@@ -1,12 +1,12 @@
 <?php
 
-namespace MiniFlow;
+namespace F2Dev\MiniFlow;
 
 require_once __dir__.'/interfaces/linkInterface.php';
 require_once __dir__.'/interfaces/nodeInterface.php';
 
-use MiniFlow\Interfaces\NodeInterface as NodeInterface;
-use MiniFlow\Interfaces\LinkInterface as LinkInterface;
+use F2Dev\MiniFlow\Interfaces\NodeInterface as NodeInterface;
+use F2Dev\MiniFlow\Interfaces\LinkInterface as LinkInterface;
 
 class MiniFlow
 {

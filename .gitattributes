@@ -1,9 +1,9 @@
 * text=auto !eol
-interfaces/bases/baseLink.php -text
-interfaces/bases/baseNode.php -text
-interfaces/linkInterface.php -text
-interfaces/nodeInterface.php -text
-/miniflow.php -text
-test/HelloNode.php -text
-test/RandomLink.php -text
-test/TestFlow.php -text
+F2Dev/MiniFlow/interfaces/bases/baseLink.php -text
+F2Dev/MiniFlow/interfaces/bases/baseNode.php -text
+F2Dev/MiniFlow/interfaces/linkInterface.php -text
+F2Dev/MiniFlow/interfaces/nodeInterface.php -text
+F2Dev/MiniFlow/miniflow.php -text
+F2Dev/MiniFlow/test/HelloNode.php -text
+F2Dev/MiniFlow/test/RandomLink.php -text
+F2Dev/MiniFlow/test/TestFlow.php -text

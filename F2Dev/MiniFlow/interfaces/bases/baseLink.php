@@ -1,12 +1,12 @@
 <?php
 
-namespace MiniFlow\Bases;
+namespace F2Dev\MiniFlow\Bases;
 
 require_once __dir__.'/../linkInterface.php';
 require_once __dir__.'/../nodeInterface.php';
 
-use MiniFlow\Interfaces\LinkInterface as LinkInterface;
-use MiniFlow\Interfaces\NodeInterface as NodeInterface;
+use F2Dev\MiniFlow\Interfaces\LinkInterface as LinkInterface;
+use F2Dev\MiniFlow\Interfaces\NodeInterface as NodeInterface;
 
 abstract class BaseLink implements LinkInterface
 {

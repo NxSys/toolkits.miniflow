@@ -1,11 +1,11 @@
 <?php
 
-namespace MiniFlow\Test;
+namespace F2Dev\MiniFlow\Test;
 
 require_once '../interfaces/bases/baselink.php';
 require_once '../interfaces/bases/basenode.php';
 
-use MiniFlow;
+use F2Dev\MiniFlow as MiniFlow;
 
 class RandomLink extends MiniFlow\Bases\BaseLink
 {
