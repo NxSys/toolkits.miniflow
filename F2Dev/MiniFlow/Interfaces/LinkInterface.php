@@ -20,17 +20,26 @@ interface LinkInterface
 	 * If it is necessary to reassign this Link to another parent Node, this function provides
 	 * that capability.
 	 *
-	 * @var NodeInterface parentNode The new parent Node.
-	 * @return NodeInterface oldParentNode This function returns the old Node parent, if pop functionality is required.
+	 * @var NodeInterface parentNode The parent Node to add.
+	 * @return Array Returns the array of Parent Nodes
 	 */
-	public function setParent(NodeInterface $parentNode);
+	public function addParent(NodeInterface $parentNode);
 	
 	/**
-	 * Returns the Parent Node Object which leads to this Link.
+	 * Searches through the Parent Nodes of this Link, searching for the given Node.
+	 * If found, returns True, else, returns False.
 	 *
-	 * @return NodeInterface The Node object which is the Parent of this Link.
+	 * @var NodeInterface parentNode The Node which should be removed.
+	 * @return Bool Returns the True if Node removed, False otherwise.
 	 */
-	public function getParent();
+	public function removeParent(NodeInterface $parentNode);
+	
+	/**
+	 * Returns the array of Parent Nodes for this Link.
+	 *
+	 * @return Array An array of Parent Nodes.
+	 */
+	public function getParents();
 	
 	/**
 	 * Appends a given Child Node to the array of Children Nodes for this Link.

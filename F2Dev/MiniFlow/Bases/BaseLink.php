@@ -17,7 +17,7 @@ abstract class BaseLink implements LinkInterface
 	 */
 	public function __construct(NodeInterface $parentNode, array $childrenNodes = array())
 	{
-		$this->parentNode = $parentNode;
+		$this->parentNodes = array($parentNode);
 		$parentNode->setChild($this);
 		$this->childrenNodes = $childrenNodes;
 		return $this;
@@ -27,24 +27,51 @@ abstract class BaseLink implements LinkInterface
 	 * If it is necessary to reassign this Link to another parent Node, this function provides
 	 * that capability.
 	 *
-	 * @var NodeInterface parentNode The new parent Node.
-	 * @return NodeInterface oldParentNode This function returns the old Node parent, if pop functionality is required.
+	 * @var NodeInterface parentNode The parent Node to add.
+	 * @return Array Returns the array of Parent Nodes
 	 */
-	public function setParent(NodeInterface $parentNode)
+	public function addParent(NodeInterface $newParentNode)
 	{
-		$oldParent = $this->parentNode;
-		$this->parentNode = $parentNode;
-		return $oldParent;
+		if (count($this->parentNodes)>0)
+		{
+			$this->parentNodes[] = $newParentNode;
+		}
+		else
+		{
+			$this->parentNodes = array($newParentNode);
+		}
+		return $this->parentNodes;
 	}
 	
 	/**
-	 * Returns the Parent Node Object which leads to this Link.
+	 * Searches through the Parent Nodes of this Link, searching for the given Node.
+	 * If found, returns True, else, returns False.
 	 *
-	 * @return NodeInterface The Node object which is the Parent of this Link.
+	 * @var NodeInterface parentNode The Node which should be removed.
+	 * @return Bool Returns the True if Node removed, False otherwise.
 	 */
-	public function getParent()
+	public function removeParent(NodeInterface $parentNode)
 	{
-		return $this->parentNode;
+		foreach($this->parentNodes as $index => $child)
+		{
+			if ($parentNode === $child)
+			{
+				unset($this->parentNodes[$index]);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	/**
+	 * Returns the array of Parent Nodes for this Link.
+	 *
+	 * @return Array An array of Parent Nodes.
+	 */
+	public function getParents()
+	{
+		return $this->parentNodes;
 	}
 	
 	/**

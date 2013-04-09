@@ -38,6 +38,7 @@ abstract class BaseNode implements NodeInterface
 	{
 		$oldParent = $this->parentLink;
 		$this->parentLink = $parentLink;
+		$this->parentLink->addChild($this);
 		return $oldParent;
 	}
 	
@@ -61,6 +62,7 @@ abstract class BaseNode implements NodeInterface
 	{
 		$oldChild = $this->childLink;
 		$this->childLink = $childLink;
+		$this->childLink->addParent($this);
 		return $oldChild;
 	}
 	

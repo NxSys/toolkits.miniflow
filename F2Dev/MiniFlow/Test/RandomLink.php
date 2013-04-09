@@ -14,6 +14,6 @@ class RandomLink extends MiniFlow\Bases\BaseLink
 	 */
 	public function determine(array $arguments = array())
 	{
-		return $this->childrenNodes[rand(0, count($this->childrenNodes)-1)];
+		return $this->getChildren()[rand(0, count($this->getChildren())-1)];
 	}
 }
