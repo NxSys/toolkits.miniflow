@@ -13,13 +13,19 @@ $loader->register(true);
 use F2Dev\MiniFlow as MiniFlow;
 use F2Dev\MiniFlow\Test as Test;
 
-$testFactory = new Test\TestFlow();
-$testFlow1 = $testFactory->getWorkflow();
+
 
 
 $startNode = new Test\HelloNode();
 
 $linkS = new Test\RandomLink($startNode);
+
+
+
+$testFlow2 = new MiniFlow\MiniFlow("Test Flow", $startNode);
+
+
+$testFlow1 = Test\TestFlow::getWorkflow();
 
 $linkS->addChild($testFlow1);
 
@@ -27,9 +33,7 @@ $newLink = new Test\RandomLink($testFlow1);
 
 $newNode = new Test\HelloNode($newLink);
 
-$testFlow2 = new MiniFlow\MiniFlow("Test Flow", $startNode);
-
-MiniFlow\Bases\BaseFactory::useSerializedWorkflow(serialize($testFlow2))->execute(array("Message" => "World"));
+MiniFlow\Bases\BaseFactory::unserializeWorkflow(serialize($testFlow2))->execute(array("Message" => "World"));
 
 
 

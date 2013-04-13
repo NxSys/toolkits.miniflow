@@ -11,7 +11,7 @@ interface FactoryInterface
 	 *
 	 * @return MiniFlow The instantiated MiniFlow.
 	 **/
-	public function getWorkflow();
+	static function getWorkflow();
 	
 	/**
 	 * Unpack and prepare a serialized workflow to be returned.
@@ -19,5 +19,13 @@ interface FactoryInterface
 	 * @var string $sWorkflow The serialized workflow to use.
 	 * @return MiniFlow The instantiated MiniFlow.
 	 */
-	static function useSerializedWorkflow($sWorkflow);
+	static function unserializeWorkflow($sWorkflow);
+	
+	/**
+	 * Pack and prepare a workflow to be serialized.
+	 *
+	 * @var MiniFlow $oWorkflow The workflow to serialize.
+	 * @return string The serialized MiniFlow.
+	 */
+	static function serializeWorkflow(MiniFlow\MiniFlow $oWorkflow);
 }

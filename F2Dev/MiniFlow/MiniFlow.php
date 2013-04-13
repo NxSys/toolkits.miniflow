@@ -43,13 +43,6 @@ class MiniFlow implements Interfaces\ExecutableInterface
 		return $aFlowEnv;
 	}
 	
-	/**
-	 * If it is necessary to reassign this Node to another parent Link, this function provides
-	 * that capability.
-	 *
-	 * @var LinkInterface parentLink The new parent Link.
-	 * @return LinkInterface oldParentLink This function returns the old Link parent, if pop functionality is required.
-	 */
 	public function setParent(Interfaces\LinkInterface $parentLink)
 	{
 		$oldParent = $this->parentLink;
@@ -57,23 +50,12 @@ class MiniFlow implements Interfaces\ExecutableInterface
 		$this->parentLink->addChild($this);
 		return $oldParent;
 	}
-	
-	/**
-	 * Returns the Parent Link Object which leads to this Node.
-	 *
-	 * @return LinkInterface The Link object which is the Parent of this Node.
-	 */
+
 	public function getParent()
 	{
 		return $this->parentLink;
 	}
 	
-	/**
-	 * Sets the Link child to which this Node leads.
-	 *
-	 * @var LinkInterface childLink The child link which is to be set.
-	 * @return Varies Returns NULL if no Child was previously set, otherwise returns the old Child.
-	 */
 	public function setChild(Interfaces\LinkInterface $childLink)
 	{
 		$oldChild = $this->childLink;
@@ -81,16 +63,9 @@ class MiniFlow implements Interfaces\ExecutableInterface
 		$this->childLink->addParent($this);
 		return $oldChild;
 	}
-	
-	/**
-	 * Returns the Link child of this Node.
-	 *
-	 * @return Mixed The child Link object, if it exists, False otherwise.
-	 */
+
 	public function getChild()
 	{
 		return $this->childLink;
 	}
-	
-	
 }

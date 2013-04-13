@@ -8,7 +8,7 @@ use F2Dev\MiniFlow\Bases\BaseFactory as BaseFactory;
 
 class TestFlow extends BaseFactory
 {
-	public function getWorkflow()
+	static function getWorkflow()
 	{
 		$startNode = new Test\HelloNode();
 
