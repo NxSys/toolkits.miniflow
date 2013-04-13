@@ -4,6 +4,7 @@ namespace F2Dev\MiniFlow\Bases;
 
 use F2Dev\MiniFlow\Interfaces\LinkInterface as LinkInterface;
 use F2Dev\MiniFlow\Interfaces\NodeInterface as NodeInterface;
+use F2Dev\MiniFlow\Interfaces\ExecutableInterface as ExecutableInterface;
 
 abstract class BaseLink implements LinkInterface
 {
@@ -15,7 +16,7 @@ abstract class BaseLink implements LinkInterface
 	 * @var Array childrenNodes An array of Child Nodes. If not present, store an empty array.
 	 * @return LinkInterface Return the constructed Link Object.
 	 */
-	public function __construct(NodeInterface $parentNode, array $childrenNodes = array())
+	public function __construct(ExecutableInterface $parentNode, array $childrenNodes = array())
 	{
 		$this->parentNodes = array($parentNode);
 		$parentNode->setChild($this);
@@ -30,7 +31,7 @@ abstract class BaseLink implements LinkInterface
 	 * @var NodeInterface parentNode The parent Node to add.
 	 * @return Array Returns the array of Parent Nodes
 	 */
-	public function addParent(NodeInterface $newParentNode)
+	public function addParent(ExecutableInterface $newParentNode)
 	{
 		if (count($this->parentNodes)>0)
 		{
@@ -50,7 +51,7 @@ abstract class BaseLink implements LinkInterface
 	 * @var NodeInterface parentNode The Node which should be removed.
 	 * @return Bool Returns the True if Node removed, False otherwise.
 	 */
-	public function removeParent(NodeInterface $parentNode)
+	public function removeParent(ExecutableInterface $parentNode)
 	{
 		foreach($this->parentNodes as $index => $child)
 		{
@@ -80,7 +81,7 @@ abstract class BaseLink implements LinkInterface
 	 * @var NodeInterface newChildNode The Node to add.
 	 * @return Array Returns the array of Children Nodes
 	 */
-	public function addChild(NodeInterface $newChildNode)
+	public function addChild(ExecutableInterface $newChildNode)
 	{
 		if (count($this->childrenNodes)>0)
 		{
@@ -100,7 +101,7 @@ abstract class BaseLink implements LinkInterface
 	 * @var NodeInterface childNode The Node which should be removed.
 	 * @return Bool Returns the True if Node removed, False otherwise.
 	 */
-	public function removeChild(NodeInterface $childNode)
+	public function removeChild(ExecutableInterface $childNode)
 	{
 		foreach($this->childrenNodes as $index => $child)
 		{

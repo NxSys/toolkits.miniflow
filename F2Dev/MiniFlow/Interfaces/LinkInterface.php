@@ -2,7 +2,7 @@
 
 namespace F2Dev\MiniFlow\Interfaces;
 
-use F2Dev\MiniFlow\Interfaces\NodeInterface as NodeInterface;
+use F2Dev\MiniFlow\Interfaces\ExecutableInterface as ExecutableInterface;
 
 interface LinkInterface
 {
@@ -14,7 +14,7 @@ interface LinkInterface
 	 * @var Array childrenNodes An array of Child Nodes. If not present, store an empty array.
 	 * @return LinkInterface Return the constructed Link Object.
 	 */
-	public function __construct(NodeInterface $parentNode, array $childrenNodes = array());
+	public function __construct(ExecutableInterface $parentNode, array $childrenNodes = array());
 	
 	/**
 	 * If it is necessary to reassign this Link to another parent Node, this function provides
@@ -23,7 +23,7 @@ interface LinkInterface
 	 * @var NodeInterface parentNode The parent Node to add.
 	 * @return Array Returns the array of Parent Nodes
 	 */
-	public function addParent(NodeInterface $parentNode);
+	public function addParent(ExecutableInterface $parentNode);
 	
 	/**
 	 * Searches through the Parent Nodes of this Link, searching for the given Node.
@@ -32,7 +32,7 @@ interface LinkInterface
 	 * @var NodeInterface parentNode The Node which should be removed.
 	 * @return Bool Returns the True if Node removed, False otherwise.
 	 */
-	public function removeParent(NodeInterface $parentNode);
+	public function removeParent(ExecutableInterface $parentNode);
 	
 	/**
 	 * Returns the array of Parent Nodes for this Link.
@@ -47,7 +47,7 @@ interface LinkInterface
 	 * @var NodeInterface newChildNode The Node to add.
 	 * @return Array Returns the array of Children Nodes
 	 */
-	public function addChild(NodeInterface $newChildNode);
+	public function addChild(ExecutableInterface $newChildNode);
 	
 	/**
 	 * Searches through the Children Nodes of this Link, searching for the given Node.
@@ -56,7 +56,7 @@ interface LinkInterface
 	 * @var NodeInterface childNode The Node which should be removed.
 	 * @return Bool Returns the True if Node removed, False otherwise.
 	 */
-	public function removeChild(NodeInterface $childNode);
+	public function removeChild(ExecutableInterface $childNode);
 	
 	/**
 	 * Returns the array of Children Nodes for this Link.
